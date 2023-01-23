@@ -20,12 +20,20 @@ class Router{
     $this->routes = $routes;
       }//define routes
 
+    /*
+     * for routing security
+     */
     public function get($route,$controller){
             $this->routes['GET'][$route]=$controller;
     }
     public function post($route,$controller){
         $this->routes['POST'][$route]=$controller;
     }
+
+
+    /*
+     * it returns the controller depending on the route and method
+     */
   public function direct($routeName,$requestMethod){
       if(array_key_exists($routeName,$this->routes[$requestMethod])){
       return $this->routes[$requestMethod][$routeName];
