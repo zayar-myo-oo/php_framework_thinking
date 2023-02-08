@@ -1,7 +1,11 @@
 <?php
-
+use controller\PageController;
 
 //router is Router object
-$router->get("","controller/HomeController.php");
-$router->get("about","controller/AboutController.php");
-$router->post("users","controller/UserController.php");
+// $router->get("","PageController@home");
+
+
+$router->get("",[PageController::class,'home']);
+$router->get("home",[PageController::class,'home']);
+$router->get("about",[PageController::class,'about']);
+$router->post("user",[PageController::class,'createUser']); 
